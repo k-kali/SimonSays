@@ -5,7 +5,14 @@ class GameState {
 
   public:
 
-    GameState(){}
+    typedef enum{
+      Idle = 0b00,
+      ShowPattern = 0b01,
+      ProcessResponse = 0b10,
+      ShowResults = 0b11
+    }GameState_e;
+
+    virtual GameState_e run(int button_input);
   
 };
 
