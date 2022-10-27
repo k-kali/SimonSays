@@ -4,6 +4,10 @@
 #include <Arduino.h>
 #include "IODriver.h"
 
+/**
+ * @class UnoIODriver
+ * @brief
+*/
 class UnoIODriver : public IODriver{
  
   int analog_in_buttons = A0;
@@ -24,10 +28,20 @@ public:
       return analogRead(analog_in_buttons);
     }
 
-    void flash_LEDx(int x) override{
+    void LEDx_high(uint8_t x) override {
       digitalWrite(x, HIGH);
-      delay(500);
+    }
+
+    void LEDx_low(uint8_t x) override {
       digitalWrite(x, LOW);
+    }
+
+    uint8_t rand_in_range(int min_inc, int max_exc) override {
+      return random(min_inc, max_exc);
+    }
+
+    void delay_ms(uint16_t ms) override {
+      delay(ms);
     }
 };
 
