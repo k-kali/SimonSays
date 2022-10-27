@@ -1,26 +1,21 @@
 #include "GameDriver.h"
 
+/**
+ * 
+*/
 void GameDriver::run(){
   unsigned int button_input = IO.read_button_input();
 
   switch(state){
     case GameState::Idle:
-      {//if button input - transition to simonsays
-      IdleState idle;
-      state = idle.run(button_input);
-      }
+      idle.run(button_input);
       break;
       
     case GameState::ShowPattern:
-//      ShowPatternState show_pattern;
-//      state = show_pattern.run();
+      state = show_pattern.run(curr_lvl);
       break;
-      //display "Level x - Simon Says..."
-      //displayLEDPattern();
-      // display "Level x - Your Turn!"
       
     case GameState::ProcessResponse:
-//      ProcessResponseState process_respose;
 //      state = process_response.run();
       break;
       //if button input - debounce(?) and check if correct
@@ -29,7 +24,6 @@ void GameDriver::run(){
       //timeout - show timeout msg, transition to showResults (display results msg)
       
     case GameState::ShowResults:
-//      ShowResultsState show_results;
 //      state = show_results.run();
       break;
       //if button input - transition to Idle (display start msg)

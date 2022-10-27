@@ -2,24 +2,30 @@
 #define GAMEDRIVER_H_
 
 #include "IdleState.h"
-//#include "ShowPatternState.h"
+#include "ShowPatternState.h"
 //#include "ProcessResponseState.h"
 //#include "DisplayResultsState.h"
 #include "IODriver.h"
 
 class GameDriver {
 
-  GameState::GameState_e state;
-  IODriver& IO;
+  IdleState idle;
+  ShowPatternState show_pattern;
+  //      ProcessResponseState process_respose;
+  //      ShowResultsState show_results;
+  GameState::GameState_e state; //need??
+  IODriver& IO;                 //
+  uint8_t curr_lvl = 0;
 
   public:
 
     GameDriver(IODriver& _IO):
-      IO(_IO)
+      IO(_IO),
+      show_pattern(_IO)
     {
       state = GameState::Idle;
-      {IdleState idle;
-      idle.displayMsg();}
+      IdleState idle;
+      idle.displayMsg();
       IO.pin_setup();
     }
 
