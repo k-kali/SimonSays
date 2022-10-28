@@ -1,9 +1,9 @@
 #ifndef GAMEDRIVER_H_
 #define GAMEDRIVER_H_
 
-#include "IdleState.h"
-#include "ShowPatternState.h"
-#include "ProcessResponseState.h"
+#include "states\IdleState.h"
+#include "states\ShowPatternState.h"
+#include "states\ProcessResponseState.h"
 //#include "DisplayResultsState.h"
 #include "IODriver.h"
 

@@ -2,7 +2,7 @@
 #define SHOWPATTERNSTATE_H_
 
 #include "GameState.h"
-#include "IODriver.h"
+#include "..\IODriver.h"
 
 #define DEFAULT_PATTERN_LEN 3
 #define FLASH_DELAY_mS      100
@@ -35,6 +35,7 @@ class ShowPatternState : public GameState {
 
   private:
 
+    //should this be inlined? probably not, is big / uses loop so overhead for function call probably not significant in comparison
     void displayLEDPattern(uint8_t lvl) {
       int dual_LED_flashes = 0;
       uint8_t pattern_len = DEFAULT_PATTERN_LEN + lvl;
