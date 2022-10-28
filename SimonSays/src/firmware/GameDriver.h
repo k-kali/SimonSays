@@ -29,6 +29,8 @@ class GameDriver {
       IO.pin_setup();
     }
 
+    ~GameDriver(){}
+
     void run();
 
     void set_state(GameState* next_state, GameState::GameState_e next_state_e){

@@ -17,6 +17,8 @@ class ShowPatternState : public GameState {
       device_driver(_device_driver)
     {}
 
+    ~ShowPatternState(){}
+
     /*
       @breif
       @param button_input
